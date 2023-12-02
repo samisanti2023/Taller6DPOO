@@ -10,7 +10,9 @@ import java.util.HashMap;
 import java.util.Set;
 
 import lógica.Combo;
+
 import lógica.Ingrediente;
+import lógica.IngredienteRepetidoException;
 import lógica.Pedido;
 import lógica.ProductoMenu;
 import lógica.ProductoRepetidoException;
@@ -21,7 +23,7 @@ import lógica.Restaurante;
 public class Aplicacion {
 	
 	private Restaurante elRestaurante;
-	public void ejecutarAplicacion() throws IOException
+	public void ejecutarAplicacion() throws IOException, IngredienteRepetidoException
 	{
 		System.out.println("Hamburguesas El Corral");
 
@@ -84,7 +86,7 @@ public class Aplicacion {
 		System.out.println("3. Producto modificado");
 	}
 	
-	private void cargarDatosYmostrarMenu() {
+	private void cargarDatosYmostrarMenu() throws IngredienteRepetidoException {
 		System.out.println("Cargando menú: ");
 
 
@@ -141,6 +143,11 @@ public class Aplicacion {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	 catch (IngredienteRepetidoException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
 	}
 	private void ejecutarNuevoPedido() {
 		String nombre =input("Ingrese su nombre ");
@@ -222,7 +229,12 @@ public class Aplicacion {
 	public static void main(String[] args) throws IOException {
 		
 		Aplicacion consola = new Aplicacion();
-		consola.ejecutarAplicacion();
+		try {
+			consola.ejecutarAplicacion();
+		} catch (IngredienteRepetidoException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

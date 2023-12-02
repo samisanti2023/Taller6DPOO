@@ -119,7 +119,7 @@ public class Restaurante {
 	public ArrayList<ProductoMenu> getListaMenu(){
 		return listaMenu;
 	}
-	public void cargarInformacionRestaurante() throws IOException, ProductoRepetidoException {
+	public void cargarInformacionRestaurante() throws IOException, ProductoRepetidoException, IngredienteRepetidoException {
 		cargarMenu();
 		cargarIngredientes();
 		cargarCombos();
@@ -158,7 +158,7 @@ public class Restaurante {
 
 
 	}
-	private void cargarIngredientes() throws IOException, ProductoRepetidoException {
+	private void cargarIngredientes() throws IOException, IngredienteRepetidoException {
 
 		BufferedReader br = new BufferedReader(new FileReader("./data/ingredientes.txt"));
 		String linea = br.readLine(); 
@@ -176,7 +176,7 @@ public class Restaurante {
 
 			}
 			else {
-				throw new ProductoRepetidoException("El prodcto "+ producto.getNombre()
+				throw new IngredienteRepetidoException("El ingrediente "+ producto.getNombre()
 				+" está repetido en el archivo");
 			}
 			linea = br.readLine(); // Leer la siguiente línea

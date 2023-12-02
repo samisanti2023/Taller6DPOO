@@ -119,7 +119,7 @@ public class Restaurante {
 	public ArrayList<ProductoMenu> getListaMenu(){
 		return listaMenu;
 	}
-	public void cargarInformacionRestaurante() throws IOException {
+	public void cargarInformacionRestaurante() throws IOException, ProductoRepetidoException {
 		cargarMenu();
 		cargarIngredientes();
 		cargarCombos();
@@ -129,7 +129,7 @@ public class Restaurante {
 
 
 	}
-	private void cargarMenu() throws IOException  {
+	private void cargarMenu() throws IOException, ProductoRepetidoException  {
 
 
 		BufferedReader br = new BufferedReader(new FileReader("./data/menu.txt"));
@@ -145,8 +145,12 @@ public class Restaurante {
 			if (producto == null) {
 				producto = new ProductoMenu(nombreProducto,precio);
 				mapaMenu.put(nombreProducto, producto);
-
 			}
+			else {
+					throw new ProductoRepetidoException("El prodcto "+ producto.getNombre()
+					+" está repetido en el archivo");
+				}
+			
 			linea = br.readLine(); // Leer la siguiente línea
 		}
 
@@ -154,7 +158,7 @@ public class Restaurante {
 
 
 	}
-	private void cargarIngredientes() throws IOException {
+	private void cargarIngredientes() throws IOException, ProductoRepetidoException {
 
 		BufferedReader br = new BufferedReader(new FileReader("./data/ingredientes.txt"));
 		String linea = br.readLine(); 
@@ -170,6 +174,10 @@ public class Restaurante {
 				producto = new Ingrediente(nombreProducto,precio);
 				mapaIngredientes.put(nombreProducto, producto);
 
+			}
+			else {
+				throw new ProductoRepetidoException("El prodcto "+ producto.getNombre()
+				+" está repetido en el archivo");
 			}
 			linea = br.readLine(); // Leer la siguiente línea
 		}

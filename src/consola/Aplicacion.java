@@ -13,6 +13,7 @@ import lógica.Combo;
 import lógica.Ingrediente;
 import lógica.Pedido;
 import lógica.ProductoMenu;
+import lógica.ProductoRepetidoException;
 import lógica.Restaurante;
 
 
@@ -136,6 +137,9 @@ public class Aplicacion {
 		{
 			System.out.println("ERROR: hubo un problema leyendo el archivo.");
 			System.out.println(e.getMessage());
+		} catch (ProductoRepetidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	private void ejecutarNuevoPedido() {

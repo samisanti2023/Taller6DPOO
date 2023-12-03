@@ -14,6 +14,7 @@ import lógica.Combo;
 import lógica.Ingrediente;
 import lógica.IngredienteRepetidoException;
 import lógica.Pedido;
+import lógica.PedidoException;
 import lógica.ProductoMenu;
 import lógica.ProductoRepetidoException;
 import lógica.Restaurante;
@@ -177,19 +178,40 @@ public class Aplicacion {
 	private void ejecutarAgregarDeMenu() {
 		String numP =input("Ingrese el número correspondiente al pedido del"
 				+ "menu que desea realizar");
-		elRestaurante.agregarProductoMenu(numP);
+		try {
+			elRestaurante.agregarProductoMenu(numP);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PedidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private void ejecutarAgregarCombo() {
 		String numP =input("Ingrese el número correspondiente al pedido del"
 				+ "combo que desea realizar");
-		elRestaurante.agregarCombo(numP);
+		try {
+			elRestaurante.agregarCombo(numP);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PedidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private void ejecutarAgregarProductoAjustado() {
 		String numBase =input("Ingrese el número correspondiente al producto"
 				+ " base que desea");
 		String agregar =input("Ingrese los números separados con comas de los elementos que quiere agregar. Ingrese n para no ");
 		String eliminar =input("Ingrese los números separados con comas de los elementos que quiere agregar. Ingrese n para no");
-		elRestaurante.agregarProductoAjustado(numBase, agregar, eliminar);
+		try {
+			elRestaurante.agregarProductoAjustado(numBase, agregar, eliminar);
+		} catch (PedidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

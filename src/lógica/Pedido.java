@@ -39,9 +39,14 @@ public class Pedido {
 		public String getDireccion() {
 			return direccionCliente;
 		}
-		public void agregarProducto(Producto nuevoItem) {
+		public void agregarProducto(Producto nuevoItem) throws PedidoException {
 			elementos.add(nuevoItem);
-			
+			int PNeto= this.getPrecioNetoPedido();
+			if (PNeto>150000){
+				throw new PedidoException("No puede agregar" +
+						nuevoItem.getNombre() + ", porque su pedido superaría el "
+								+ "valor nento de 150.000");
+			}
 		}
 		private int getPrecioNetoPedido() {
 			int sumaTotal = 0;

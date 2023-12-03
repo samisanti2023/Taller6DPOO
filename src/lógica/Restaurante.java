@@ -55,14 +55,14 @@ public class Restaurante {
 	//// Agregar productos a un pedido
 
 
-	public void agregarProductoMenu(String base) {
+	public void agregarProductoMenu(String base) throws NumberFormatException, PedidoException {
 		pedidoActual.agregarProducto(listaMenu.get(Integer.parseInt(base)));
 	}
-	public void agregarCombo(String base) {
+	public void agregarCombo(String base) throws NumberFormatException, PedidoException {
 		pedidoActual.agregarProducto(listaCombos.get(Integer.parseInt(base)));
 	}
 	public void agregarProductoAjustado(String base,String agregar,
-			String eliminar) {
+			String eliminar) throws PedidoException {
 		ProductoAjustado prod = new ProductoAjustado(listaMenu.get(Integer.parseInt(base)));
 		if (agregar.equals("n")==false) {
 			String[] ag = agregar.split(",");

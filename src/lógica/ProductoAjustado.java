@@ -49,19 +49,19 @@ public class ProductoAjustado implements Producto{
 		String factura = getNombre() +"   "+ base.getPrecio()+"\n";
 		if(listaAgregar.size()!=0){
 			
-			for(int i=0;i<listaAgregar.size();i=i+1) {
+			for(int i=0;i<getAgregados().size();i=i+1) {
 			factura= factura +"    con ";
-			factura= factura + listaAgregar.get(i).getNombre()+
-					"   "+listaAgregar.get(i).getCostoAdiconal()+"\n";
+			factura= factura + getAgregados().get(i).getNombre()+
+					"   "+getAgregados().get(i).getCostoAdiconal()+"\n";
 			}
 				
-			
+			//
 		}
 		if(listaEliminar.size()!=0){
 			
-			for(int i=0;i<listaEliminar.size();i=i+1) {
+			for(int i=0;i<getEliminados().size();i=i+1) {
 			factura= factura +"    sin ";
-			factura= factura + listaEliminar.get(i).getNombre()+"\n";
+			factura= factura + getEliminados().get(i).getNombre()+"\n";
 			}
 				
 			

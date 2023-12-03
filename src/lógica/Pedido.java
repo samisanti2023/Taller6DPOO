@@ -18,11 +18,11 @@ public class Pedido {
 		
 		// metodos
 		
-		public Pedido(String nombreCliente, String direccionCliente, int idPedido) {
+		public Pedido(String nombreCliente, String direccionCliente) {
+			this.idPedido=numeroPedidos;
 			numeroPedidos++;
 			this.nombreCliente= nombreCliente;
 			this.direccionCliente=direccionCliente;
-			this.idPedido=idPedido;
 			this.elementos = new ArrayList<>();
 					
 			

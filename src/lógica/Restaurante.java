@@ -47,7 +47,7 @@ public class Restaurante {
 
 	public void iniciarPedido(String nombreCliente, String direccionCliente)
 	{
-		pedidoActual= new Pedido(nombreCliente,direccionCliente, Pedido.getNumeroPedidos());
+		pedidoActual= new Pedido(nombreCliente,direccionCliente);
 
 
 

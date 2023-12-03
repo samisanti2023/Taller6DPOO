@@ -24,12 +24,15 @@ public class ProductoAjustadoTest {
 		prodAj.agregarIngrediente(nuevoIng);
 		prodAj.quitarIngrediente(quitIng);
 		String txtFactPTest=prodAj.generarTextoFactura();
+		ProductoAjustado prodAj2=new ProductoAjustado(prod);
+		String txtFactPTest2=prodAj2.generarTextoFactura();
 		//Assert
 		assertEquals(prodAj.getPrecio(),15000);
 		
 		assertEquals("corral   14000\n    con lechuga   1000\n"
 				+ "    sin tomate"+"\n",txtFactPTest);
 		
+		assertEquals("corral   14000\n",txtFactPTest2);
 		
 	}
 }

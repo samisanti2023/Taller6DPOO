@@ -35,10 +35,10 @@ public class PedidoTest {
 	///Assert
 	
 	
-	File nuevaFactura = new File("C:/Users/samis/Downloads/factura0.txt");
+	File nuevaFactura = new File("./facturas/factura0.txt");
 	ped1.guardarFactura(nuevaFactura);
 	
-	BufferedReader br = new BufferedReader(new FileReader("C:/Users/samis/Downloads/factura0.txt"));
+	BufferedReader br = new BufferedReader(new FileReader("./facturas/factura0.txt"));
 	String linea = br.readLine(); 
 	String factPrueba="";
 	while (linea != null) {

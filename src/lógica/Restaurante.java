@@ -88,7 +88,7 @@ public class Restaurante {
 	public void cerrarYGuardarPedido() throws IOException {
 		String id = Integer.toString(pedidoActual.getidPedido());
 		mapaPedidos.put(id,pedidoActual);
-		File nuevaFactura = new File("C:/Users/samis/Downloads/factura"+id+".txt");
+		File nuevaFactura = new File("./facturas/factura"+id+".txt");
 		pedidoActual.guardarFactura(nuevaFactura);
 		pedidoActual = null;
 

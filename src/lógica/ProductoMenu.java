@@ -18,7 +18,7 @@ public class ProductoMenu implements Producto{
 	}
 	@Override
 	public String generarTextoFactura() {
-		String factura = nombre +"  "+precioBase;
+		String factura = this.getNombre() +"  "+this.getPrecio();
 		return factura;
 	}
 

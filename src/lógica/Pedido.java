@@ -45,7 +45,7 @@ public class Pedido {
 			if (PNeto>150000){
 				throw new PedidoException("No puede agregar" +
 						nuevoItem.getNombre() + ", porque su pedido superaría el "
-								+ "valor nento de 150.000");
+								+ "valor nento de 150.000",this);
 			}
 		}
 		private int getPrecioNetoPedido() {
@@ -70,7 +70,7 @@ public class Pedido {
 			double iva = precioNeto*0.19;
 			return iva;
 		}
-		private String generarFactura() {
+		public String generarFactura() {
 			String factura = "Hamburguesas el corral\n"+"\n"+"\n";
 			factura = factura + "ID Pedido: "+getidPedido() +"\n";
 			factura = factura + "Nombre: "+getNombreCliente() +"\n";

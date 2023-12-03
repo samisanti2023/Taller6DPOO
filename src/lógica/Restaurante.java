@@ -148,7 +148,7 @@ public class Restaurante {
 			}
 			else {
 					throw new ProductoRepetidoException("El prodcto "+ producto.getNombre()
-					+" está repetido en el archivo");
+					+" está repetido en el archivo",producto.getNombre());
 				}
 			
 			linea = br.readLine(); // Leer la siguiente línea
@@ -177,7 +177,7 @@ public class Restaurante {
 			}
 			else {
 				throw new IngredienteRepetidoException("El ingrediente "+ producto.getNombre()
-				+" está repetido en el archivo");
+				+" está repetido en el archivo",producto.getNombre());
 			}
 			linea = br.readLine(); // Leer la siguiente línea
 		}

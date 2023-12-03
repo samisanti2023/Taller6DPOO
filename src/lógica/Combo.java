@@ -32,7 +32,7 @@ public class Combo implements Producto {
 	}
 	public int getPrecio() {
 		
-		int suma = papas.getPrecio()+ hamburguesa.getPrecio()+bebida.getPrecio();
+		int suma = getPapas().getPrecio()+ getHamburguesa().getPrecio()+getBebida().getPrecio();
 		double d =suma;
 		double suma1=d*(100-descuento)/100;
 		
@@ -55,7 +55,7 @@ public class Combo implements Producto {
 	}
 	@Override
 	public String generarTextoFactura() {
-		String factura = nombreCombo + "      "+getPrecio();
+		String factura = getNombre()+ "      "+getPrecio();
 		return factura;
 	}
 }

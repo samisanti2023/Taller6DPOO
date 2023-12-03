@@ -24,7 +24,7 @@ import lógica.Restaurante;
 public class Aplicacion {
 	
 	private Restaurante elRestaurante;
-	public void ejecutarAplicacion() throws IOException, IngredienteRepetidoException
+	public void ejecutarAplicacion() throws IOException, IngredienteRepetidoException, PedidoException
 	{
 		System.out.println("Hamburguesas El Corral");
 
@@ -157,25 +157,43 @@ public class Aplicacion {
 		
 		
 	}
-	private void ejecutarAgregarProductoAPedido()
+	private void ejecutarAgregarProductoAPedido() 
 	{
 		
 	   MenuProductoOCombo();
 				
 				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
 				if (opcion_seleccionada == 1)
-					ejecutarAgregarDeMenu();
+					try {
+						ejecutarAgregarDeMenu();
+					} catch (PedidoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.out.print(e.getInfo());
+					}
 				else if (opcion_seleccionada == 2 && elRestaurante != null)
-					ejecutarAgregarCombo();
+					try {
+						ejecutarAgregarCombo();
+					} catch (PedidoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.out.print(e.getInfo());
+					}
 				else if (opcion_seleccionada == 3 && elRestaurante != null)
-					ejecutarAgregarProductoAjustado();
+					try {
+						ejecutarAgregarProductoAjustado();
+					} catch (PedidoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.out.print(e.getInfo());
+					}
 
 				
 	
 		
 		}
 	
-	private void ejecutarAgregarDeMenu() {
+	private void ejecutarAgregarDeMenu() throws PedidoException {
 		String numP =input("Ingrese el número correspondiente al pedido del"
 				+ "menu que desea realizar");
 		try {
@@ -183,12 +201,9 @@ public class Aplicacion {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (PedidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	private void ejecutarAgregarCombo() {
+
+	}}
+	private void ejecutarAgregarCombo() throws PedidoException {
 		String numP =input("Ingrese el número correspondiente al pedido del"
 				+ "combo que desea realizar");
 		try {
@@ -196,22 +211,20 @@ public class Aplicacion {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (PedidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+		} 
 	}
-	private void ejecutarAgregarProductoAjustado() {
+	private void ejecutarAgregarProductoAjustado() throws PedidoException {
 		String numBase =input("Ingrese el número correspondiente al producto"
 				+ " base que desea");
 		String agregar =input("Ingrese los números separados con comas de los elementos que quiere agregar. Ingrese n para no ");
 		String eliminar =input("Ingrese los números separados con comas de los elementos que quiere agregar. Ingrese n para no");
-		try {
+		
 			elRestaurante.agregarProductoAjustado(numBase, agregar, eliminar);
-		} catch (PedidoException e) {
+		
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+
 	}
 	
 	
@@ -248,7 +261,7 @@ public class Aplicacion {
 		}
 		return null;
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, PedidoException {
 		
 		Aplicacion consola = new Aplicacion();
 		try {

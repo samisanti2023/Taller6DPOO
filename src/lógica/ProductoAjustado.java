@@ -50,7 +50,7 @@ public class ProductoAjustado implements Producto{
 		if(listaAgregar.size()!=0){
 			
 			for(int i=0;i<listaAgregar.size();i=i+1) {
-			factura= factura +"     con ";
+			factura= factura +"    con ";
 			factura= factura + listaAgregar.get(i).getNombre()+
 					"   "+listaAgregar.get(i).getCostoAdiconal()+"\n";
 			}
